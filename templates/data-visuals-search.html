@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<form action="{{ url_for('data_visuals_search')}}" method="POST">
+		<label>Search for podcasts</label><br>
+		<input type="text" name="search">
+		<input type="submit" name="Submit">
+	</form>
+
+	<ul class="list-group">
+		{% for podcast in search %}
+		<li class="list-group-item">{{podcast.title}} - {{podcast.description}}</li>
+		{% endfor %}
+	</ul>
+
+{% endblock %}

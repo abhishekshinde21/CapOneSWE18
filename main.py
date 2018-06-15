@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from access import top, search
+from access import top, search, podcasts_by_genre
 from mygpoclient import public
 
 # main application: root path
@@ -27,7 +27,14 @@ def data_visuals_search():
 
 @app.route('/smart-search')
 def smart_search():
-	return render_template('smart-search.html')
+	return render_template('smart-search.html', top=top_list)
+
+@app.route('/smart-visual_search', methods = ['POST'])
+def smart_visual_search():
+	user_input = request.form['search']
+	p_g = podcasts_by_genre(user_input)
+	return render_template('smart-visual-search.html', search=p_g, genre=user_input, top=top_list)
+
 
 if __name__ == "__main__":
 	app.run(debug=True) # run this app

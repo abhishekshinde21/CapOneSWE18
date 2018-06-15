@@ -16,6 +16,14 @@
 			<input type="text" name="search">
 			<input type="submit" name="Submit">
 		</form>
+		<h3 align="center">{{genre}}</h3>
+
+
+		<ul class="list-group">
+			{% for podcast in search %}
+			<li class="list-group-item">{{podcast.title}} - {{podcast.description}}</li>
+			{% endfor %}
+		</ul>
 	</div>
 	
 

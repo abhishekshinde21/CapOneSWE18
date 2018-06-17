@@ -35,6 +35,9 @@ def smart_visual_search():
 	p_g = podcasts_by_genre(user_input)
 	return render_template('smart-visual-search.html', search=p_g, genre=user_input, top=top_list)
 
+# @app.route('/smart-sort', methods = ['POST'])
+# def smart_sort():
+	
 
 if __name__ == "__main__":
 	app.run(debug=True) # run this app

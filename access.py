@@ -34,6 +34,4 @@ def subscription(username, password):
 	jsn = json.loads(page)
 	return jsn
 
-toptags()
-
 

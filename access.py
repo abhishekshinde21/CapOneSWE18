@@ -1,6 +1,6 @@
 from mygpoclient import public, testing, locator
 import requests
-
+import json
 # client = simple.SimpleClient('ashinde21', 'Marco21reus')
 # subscriptions = client.get_subscriptions('123')
 # for url in subscriptions:
@@ -12,34 +12,27 @@ def search(query):
 	client = public.PublicClient()
 	search_list = client.search_podcasts(query)
 	return search_list
-	# for podcast in search_list:
-	# 	print(podcast.title, ":", podcast.description)
 
 def top(client):
 	return client.get_toplist()
-	# toplist = client.get_toplist()
-	# for index, entry in enumerate(toplist):
-	#     print(index+1, entry.title, entry.subscribers)
 
 def toptags():
 	client = public.PublicClient()
 	tags = client.get_toptags()
-	count = 0
-	for tag in tags:
-		count = count + 1
-	print(count)
-	print(tags[0:10])
 	return tags
-	# response = requests.get(xmlfile)
-	# tree = ET.fromstring(response.content)
-	# # root = tree.getroot()
-	# # print(root[0][0].text)
-	# podcastitems = []
 	
 def podcasts_by_genre(query):
 	client = public.PublicClient()
 	genre_list = client.get_podcasts_of_a_tag(query)
 	return genre_list
+
+def subscription(username, password):
+	l = locator.Locator(username)
+	url = l.subscriptions_uri(format='json')
+	r = requests.get(url, auth=(username, password))
+	page = r.content
+	jsn = json.loads(page)
+	return jsn
 
 toptags()
 

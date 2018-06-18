@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 from access import top, search, podcasts_by_genre, toptags, subscription, sort_subscriptions
 from mygpoclient import public
-import sys
 
 # main application: root path
 app = Flask(__name__)
@@ -60,11 +59,6 @@ def smart_sort_search():
 		return render_template('smart-sort-search.html', json=j)
 	except Exception as e:
 		print(e)
-
-
-
-# @app.route('/smart-sort', methods = ['POST'])
-# def smart_sort():
 	
 
 if __name__ == "__main__":

@@ -2,10 +2,7 @@ from mygpoclient import public, testing, locator
 import requests
 import json
 import pprint
-# client = simple.SimpleClient('ashinde21', 'Marco21reus')
-# subscriptions = client.get_subscriptions('123')
-# for url in subscriptions:
-#     print('Subscribed to:' + url)
+
 client = public.PublicClient()
 # ** Functions **
 

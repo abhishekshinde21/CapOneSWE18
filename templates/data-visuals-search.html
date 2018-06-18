@@ -9,7 +9,7 @@
 
 	<ul class="list-group">
 		{% for podcast in search %}
-		<li class="list-group-item">{{podcast.title}} - {{podcast.description}}</li>
+		<li class="list-group-item"><a href="{{podcast.website}}">{{podcast.title}}</a> - {{podcast.description}}</li>
 		{% endfor %}
 	</ul>
 

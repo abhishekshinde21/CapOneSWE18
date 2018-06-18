@@ -14,8 +14,8 @@ For this, a search bar is included that enables the user to search for any podca
 The user also has the option to enter their login information, so that he/she can get information on their subscriptions.
 ```
 Smart Searching: Give users the ability to search for podcasts by genre and by popularity.
-This tab consists of two parts: popularity and genres.
 ```
+This tab consists of two parts: popularity and genres.
 On the left side, a GET request was made to get the top list of podcasts and present the information to the user.
 On the right side, there is a form for the user, which makes a HTTP POST request, and return the top podcasts for that specific genre.
 ```

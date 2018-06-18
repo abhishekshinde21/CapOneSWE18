@@ -22,9 +22,14 @@ def top(client):
 	#     print(index+1, entry.title, entry.subscribers)
 
 def toptags():
+	client = public.PublicClient()
 	tags = client.get_toptags()
+	count = 0
 	for tag in tags:
-		print(tag)
+		count = count + 1
+	print(count)
+	print(tags[0:10])
+	return tags
 	# response = requests.get(xmlfile)
 	# tree = ET.fromstring(response.content)
 	# # root = tree.getroot()
@@ -36,6 +41,6 @@ def podcasts_by_genre(query):
 	genre_list = client.get_podcasts_of_a_tag(query)
 	return genre_list
 
-# toptags()
+toptags()
 
 

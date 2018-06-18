@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from access import top, search, podcasts_by_genre
+from access import top, search, podcasts_by_genre, toptags
 from mygpoclient import public
 
 # main application: root path
@@ -13,7 +13,8 @@ top_list = top(client)
 # routing, this is the root directory
 @app.route('/')
 def index():
-	return render_template('home.html', top=top_list)
+	tag_list = toptags()
+	return render_template('home.html', tags=tag_list)
 
 @app.route('/data-visuals')
 def data_visuals():

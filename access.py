@@ -1,6 +1,7 @@
 from mygpoclient import public, testing, locator
 import requests
 import json
+import pprint
 # client = simple.SimpleClient('ashinde21', 'Marco21reus')
 # subscriptions = client.get_subscriptions('123')
 # for url in subscriptions:
@@ -33,5 +34,17 @@ def subscription(username, password):
 	page = r.content
 	jsn = json.loads(page)
 	return jsn
+
+def sort_by_subscribers(d):
+    return d['subscribers']
+
+def sort_subscriptions(username, password):
+	l = locator.Locator(username)
+	url = l.subscriptions_uri(format='json')
+	r = requests.get(url, auth=(username, password))
+	page = r.content
+	jsn = json.loads(page)
+	return sorted(jsn, key=sort_by_subscribers)
+
 
 

@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-	<form action="{{ url_for('data_visuals_search')}}" method="POST">
+	<form action="{{ url_for('data_visuals_search')}}" method="POST" style="margin-left: 30px">
 		<label>Search for podcasts</label><br>
 		<input type="text" name="search">
 		<input type="submit" name="Submit">

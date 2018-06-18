@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<form action="{{ url_for('smart_sort_search')}}" method="POST" style="margin-left: 30px">
+		<label>Enter your login information to see recommendations</label><br>
+		<input type="text" name="username" placeholder="username">
+		<input type="password" name="password" placeholder="password">
+		<input type="submit" name="Enter">
+	</form>
+
+{% endblock %}

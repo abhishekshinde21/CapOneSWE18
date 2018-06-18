@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<ul class="list-group">
+		{% for sub in json %}
+		<li class="list-group-item"> <a href="{{sub.website}}">{{sub.title}}</a> - {{sub.subscribers}} subscribers</li>
+		{% endfor %}
+	</ul>
+
+{% endblock %}

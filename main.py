@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from access import top, search, podcasts_by_genre, toptags, subscription
+from access import top, search, podcasts_by_genre, toptags, subscription, sort_subscriptions
 from mygpoclient import public
 import sys
 
@@ -31,7 +31,7 @@ def data_visuals_search():
 def smart_search():
 	return render_template('smart-search.html', top=top_list)
 
-@app.route('/smart-visual_search', methods = ['POST'])
+@app.route('/smart_visual_search', methods = ['POST'])
 def smart_visual_search():
 	user_input = request.form['search']
 	p_g = podcasts_by_genre(user_input)
@@ -46,6 +46,21 @@ def subscriptions():
 		return render_template('subscriptions.html', json=j)
 	except Exception as e:
 		print(e)
+
+@app.route('/smart-sort')
+def smart_sort():
+	return render_template('smart-sort.html')
+
+@app.route('/smart_sort_search', methods = ['POST'])
+def smart_sort_search():
+	user = request.form['username']
+	pw = request.form['password']
+	try:
+		j = sort_subscriptions(user, pw)
+		return render_template('smart-sort-search.html', json=j)
+	except Exception as e:
+		print(e)
+
 
 
 # @app.route('/smart-sort', methods = ['POST'])
